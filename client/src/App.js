@@ -15,22 +15,22 @@ function App() {
       <h1>Anti Social Social Media</h1>
         <h2>Register</h2>
         <label>Enter Name</label>
-        <input type="text"/>
+        <input type="text" onChange={(e)=> {setNameReg(e.target.value)}}/>
         <label>Enter Username</label>
-        <input type="text"/>
+        <input type="text" onChange={(e)=> {setUsernameReg(e.target.value)}}/>
         <label>Enter Email</label>
-        <input type="text"/>
+        <input type="text" onChange={(e)=> {setEmailReg(e.target.value)}}/>
         <label>Enter Birthday</label>
-        <input type="Date"/>
+        <input type="Date" onChange={(e)=> {setBirthdayReg(e.target.value)}}/>
         <label>Enter Password</label>
-        <input type="password"/>
+        <input type="password" onChange={(e)=> {setPasswordReg(e.target.value)}}/>
         <label>Confirm Password</label>
-        <input type="password2"/>
+        <input type="password2" onChange={(e)=> {setPassword2Reg(e.target.value)}}/>
         <h2>Login</h2>
         <label>Enter Email</label>
-        <input type="text"/>
+        <input type="text" placeholder="Username..." />
         <label>Enter Password</label>
-        <input type="password"/>
+        <input type="password" placeholder="Password..." />
     </div>
   );
 }

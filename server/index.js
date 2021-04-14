@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const db = require("./db")
-const controller = require("./controller")
+const controller = require('./controller')
 
 const PORT = process.env.PORT || 6969
 
@@ -33,4 +33,6 @@ app.use(session({
 app.post("/register", controller.doRegister)
 app.post("/login", controller.doLogin)
 
-app.listen(PORT)
+app.listen(PORT, function(){
+    console.log(`server is running on port: ${PORT}`)
+})

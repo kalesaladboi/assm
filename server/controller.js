@@ -4,9 +4,15 @@ const saltrounds = 10
 
 
 async function doRegister(req,res) {
-    const { name, userName , email, birthday, password, password2 } = req.body;
-    let errors = [];
+    const name = await req.body.name
+    const userName = await req.body.userName
+    const email = await req.body.email
+    const birthday = await req.body.birthday
+    const password = await req.body.password
+    const password2 = await req.body.password2
+    let errors = []
 
+    if( password == password2){
     bcrypt.hash(password, saltrounds, (err , hash) =>{
       db.query(
         "INSERT INTO accounts (name, userName, email, birthday, password) VALUES (?,?,?,?,?);",
@@ -16,6 +22,9 @@ async function doRegister(req,res) {
         }
     )  
     })
+    } else {
+        console.log( "passwords do not match" )
+    }
 }
 
 async function doLogin(req,res){

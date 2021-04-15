@@ -1,6 +1,6 @@
 const express = require("express")
 const cors = require("cors")
-const db = require("./db")
+const sequelize = require('./db');
 const controller = require('./controller')
 
 const PORT = process.env.PORT || 6969
@@ -12,11 +12,7 @@ const session = require("express-session")
 const app = express()
 
 app.use(express.json())
-app.use(cors({
-    origin: ['https://localhost:6969'],
-    methods: ["GET","POST"],
-    credentials: true,
-}))
+app.use(cors())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 
@@ -30,7 +26,7 @@ app.use(session({
     }
 }))
 
-app.post("/register", controller.doRegister)
+app.post("/", controller.createUser)
 app.post("/login", controller.doLogin)
 
 app.listen(PORT, function(){

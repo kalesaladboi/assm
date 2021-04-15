@@ -10,18 +10,34 @@ function App() {
   const [birthdayReg, setBirthdayReg] = useState("")
   const [passwordReg, setPasswordReg] = useState("")
   const [password2Reg, setPassword2Reg] = useState("")
+  const [emailLogin, setEmailLogin] = useState("")
+  const [passwordLogin, setPasswordLogin] = useState("")
+
+  const login = () => {
+
+    Axios.get("http://localhost:6969/", {
+      email: emailLogin,
+      password: passwordLogin
+    }).then((response) => {
+      console.log(response)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
 
   const register = () => {
 
-    Axios.post("https://localhost6969/register", { 
-      name: nameReg, 
-      userName: usernameReg, 
-      email: emailReg, 
+    Axios.post("http://localhost:6969/login", { 
+      name: nameReg,
+      userName: usernameReg,
+      email: emailReg,
       birthday: birthdayReg, 
-      password: passwordReg, 
-      password2: password2Reg 
+      password: passwordReg,
+      password2: password2Reg
     }).then((response) => {
       console.log(response)
+    }).catch((error) => {
+      console.log(error)
     })
   }
 
@@ -30,23 +46,23 @@ function App() {
       <h1>Anti Social Social Media</h1>
         <div id="register">
         <h2>Register</h2>
-        <form action="/register" method="POST">
-        <label>Enter Name<span class="req">*</span></label>
+        <form action="/" method="POST">
+        <label>Enter Name</label>
         <input type="text" onChange={(e) => {setNameReg(e.target.value)}}/>
 
-        <label>Enter Username<span class="req">*</span></label>
+        <label>Enter Username</label>
         <input type="text" onChange={(e) => {setUsernameReg(e.target.value)}}/>
 
-        <label>Enter Email<span class="req">*</span></label>
+        <label>Enter Email</label>
         <input type="email" onChange={(e) => {setEmailReg(e.target.value)}}/>
 
-        <label>Enter Birthday<span class="req">*</span></label>
+        <label>Enter Birthday</label>
         <input type="Date" onChange={(e) => {setBirthdayReg(e.target.value)}}/>
 
-        <label>Enter Password<span class="req">*</span></label>
+        <label>Enter Password</label>
         <input type="password" onChange={(e) => {setPasswordReg(e.target.value)}}/>
 
-        <label>Confirm Password<span class="req">*</span></label>
+        <label>Confirm Password</label>
         <input type="password" onChange={(e) => {setPassword2Reg(e.target.value)}}/>
 
         <button onClick={register}> Register </button>
@@ -56,10 +72,10 @@ function App() {
         <div>
         <h2>Login</h2>
         <label>Enter Email</label>
-        <input type="text" placeholder="Username..."/>
+        <input type="text" placeholder="Email..." onChange={(e) => {setEmailLogin(e.target.value)}}/>
         <label>Enter Password</label>
-        <input type="password" placeholder="Password..."/>
-        <button> Register </button>
+        <input type="password" placeholder="Password..." onChange={(e) => {setPasswordLogin(e.target.value)}}/>
+        <button onClick={login}> Login </button>
         </div>
     </div>
   );

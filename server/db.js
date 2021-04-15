@@ -1,18 +1,8 @@
-const mysql = require("mysql")
+const Sequelize = require("sequelize");
 
-const db = mysql.createConnection({
-    user:"bbec476499053a",
-    host:"us-cdbr-east-03.cleardb.com",
-    password:"8923a034",
-    database:"heroku_67514816a5564ab",
-})
+const sequelize = new Sequelize("heroku_67514816a5564ab", "bbec476499053a", "8923a034", {
+    host: 'us-cdbr-east-03.cleardb.com',
+    dialect: "mysql"});
 
-db.connect(function(error){
-    if(!!error){
-      console.log(error);
-    }else{
-      console.log('Connected!:)');
-    }
-  });
-
-module.exports =  {db} 
+module.exports = sequelize;
+global.sequelize = sequelize;

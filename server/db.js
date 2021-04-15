@@ -7,4 +7,12 @@ const db = mysql.createConnection({
     database:"heroku_67514816a5564ab",
 })
 
+db.connect(function(error){
+    if(!!error){
+      console.log(error);
+    }else{
+      console.log('Connected!:)');
+    }
+  });
+
 module.exports =  {db} 

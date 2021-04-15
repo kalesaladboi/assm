@@ -28,21 +28,29 @@ function App() {
   return (
     <div className="App">
       <h1>Anti Social Social Media</h1>
-        <div>
+        <div id="register">
         <h2>Register</h2>
-        <label>Enter Name</label>
+        <form action="/register" method="POST">
+        <label>Enter Name<span class="req">*</span></label>
         <input type="text" onChange={(e) => {setNameReg(e.target.value)}}/>
-        <label>Enter Username</label>
+
+        <label>Enter Username<span class="req">*</span></label>
         <input type="text" onChange={(e) => {setUsernameReg(e.target.value)}}/>
-        <label>Enter Email</label>
+
+        <label>Enter Email<span class="req">*</span></label>
         <input type="email" onChange={(e) => {setEmailReg(e.target.value)}}/>
-        <label>Enter Birthday</label>
+
+        <label>Enter Birthday<span class="req">*</span></label>
         <input type="Date" onChange={(e) => {setBirthdayReg(e.target.value)}}/>
-        <label>Enter Password</label>
+
+        <label>Enter Password<span class="req">*</span></label>
         <input type="password" onChange={(e) => {setPasswordReg(e.target.value)}}/>
-        <label>Confirm Password</label>
+
+        <label>Confirm Password<span class="req">*</span></label>
         <input type="password" onChange={(e) => {setPassword2Reg(e.target.value)}}/>
+
         <button onClick={register}> Register </button>
+        </form>
         </div>
 
         <div>

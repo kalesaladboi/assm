@@ -5,6 +5,7 @@ import './App.css';
 import Register from './register/Register'
 import Login from './login/login'
 import Home from './home/home'
+import MyUser from './user/myUser/myUser'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <li><a href="/home">Home</a></li>
           <li><a href="/register">Register</a></li>
           <li><a href="/login">Login</a></li>
+          <li><a href="/users/myuser">My Profile</a></li>
         </ul>
       </nav>
       <BrowserRouter>
@@ -23,11 +25,14 @@ function App() {
           <Route path="/home">
             <Home/>
           </Route>
-          <Route path="/register" >
+          <Route path="/register">
             <Register />
           </Route>
-          <Route path="/login" >
+          <Route path="/login">
             <Login />
+          </Route>          
+          <Route path="/users/myuser">
+            <MyUser />
           </Route>
         </Switch>
       </BrowserRouter>

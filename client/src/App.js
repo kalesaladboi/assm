@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css';
 import Register from './register/Register'
 import Login from './login/login'
+import Home from './home/home'
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
       </nav>
       <BrowserRouter>
         <Switch>
+          <Route path="/">
+            <Home/>
+          </Route>
           <Route path="/register" >
             <Register />
           </Route>

@@ -10,17 +10,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Anti Social Social Media</h1>
-
       <nav>
+        <h1>AntiSocialSocialMedia</h1>
         <ul>
+          <li><a href="/home">Home</a></li>
           <li><a href="/register">Register</a></li>
           <li><a href="/login">Login</a></li>
         </ul>
       </nav>
       <BrowserRouter>
         <Switch>
-          <Route path="/">
+          <Route path="/home">
             <Home/>
           </Route>
           <Route path="/register" >

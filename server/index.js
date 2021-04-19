@@ -33,7 +33,7 @@ app.post("/", controller.createUser)
 
 //Get Request
 app.get("/login/:email", controller.doLogin)
-app.get("/users/:userName", account.getUser)
+app.get("/users/Kyle", account.getUser)
 
 app.listen(PORT, function(){
     console.log(`server is running on port: ${PORT}`)

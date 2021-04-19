@@ -31,14 +31,15 @@ async function deleteUserPage(req,res) {
 //User ineractive pages
 async function doLogin(req,res){
 
+  console.log(req.params.emailß)
 
-  myUser = await accounts.getUserByEmail(req.body.email)
+  myUser = await accounts.getUserByEmail(req.params.email)
 
   console.log(myUser)
 
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(req.body.password, salt, (err, hash) => {
-      if (err) throw err;
+      if (err) {console.log(err)};
       req.body.password = hash})
     });
   

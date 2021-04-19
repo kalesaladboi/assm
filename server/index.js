@@ -27,7 +27,7 @@ app.use(session({
 }))
 
 app.post("/", controller.createUser)
-app.post("/login", controller.doLogin)
+app.get("/login/:email", controller.doLogin)
 
 app.listen(PORT, function(){
     console.log(`server is running on port: ${PORT}`)

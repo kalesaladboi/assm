@@ -7,8 +7,9 @@ function Login() {
     const [passwordLogin, setPasswordLogin] = useState("")
 
     const login = () => {
+        console.log(emailLogin)
 
-        Axios.get("http://localhost:6969/login", {
+        Axios.get(`http://localhost:6969/login/${emailLogin}`, {
           email: emailLogin,
           password: passwordLogin
         }).then((response) => {

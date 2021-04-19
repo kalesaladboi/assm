@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const sequelize = require('./db');
 const controller = require('./controller')
+const account = require("./accounts")
 
 const PORT = process.env.PORT || 6969
 
@@ -26,8 +27,13 @@ app.use(session({
     }
 }))
 
+//Post Request
 app.post("/", controller.createUser)
+
+
+//Get Request
 app.get("/login/:email", controller.doLogin)
+app.get("/users/:userName", account.getUser)
 
 app.listen(PORT, function(){
     console.log(`server is running on port: ${PORT}`)

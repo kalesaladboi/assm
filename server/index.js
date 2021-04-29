@@ -29,11 +29,12 @@ app.use(session({
 
 //Post Request
 app.post("/register", controller.createUser)
+app.post("/users/:userName", controller.doPost)
 
 
 //Get Request
-app.get("/login/:email", controller.doLogin)
-app.get("/users/Kyle", account.getUser)
+app.get("/login", controller.doLogin)
+app.get("/users/:userName", account.getUser)
 
 app.listen(PORT, function(){
     console.log(`server is running on port: ${PORT}`)

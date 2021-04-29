@@ -31,7 +31,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>          
-          <Route path="/user/myUser">
+          <Route path="/myUser">
             <MyUser />
           </Route>
         </Switch>

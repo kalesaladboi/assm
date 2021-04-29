@@ -11,7 +11,6 @@ async function MyUser() {
         })
     }
 
-
     return(
     <div>
     <h2>Post</h2>

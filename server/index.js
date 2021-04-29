@@ -28,7 +28,7 @@ app.use(session({
 }))
 
 //Post Request
-app.post("/", controller.createUser)
+app.post("/register", controller.createUser)
 
 
 //Get Request

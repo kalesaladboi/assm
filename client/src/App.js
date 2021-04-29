@@ -17,7 +17,7 @@ function App() {
           <a href="/home">Home</a>
           <a href="/register">Register</a>
           <a href="/login">Login</a>
-          <a href="/users">My Profile</a>
+          <a href="/myUser">My Profile</a>
         </ul>
       </nav>
       <BrowserRouter>
@@ -31,7 +31,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>          
-          <Route path="/users/myuser">
+          <Route path="/user/myUser">
             <MyUser />
           </Route>
         </Switch>

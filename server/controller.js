@@ -31,7 +31,7 @@ async function deleteUserPage(req,res) {
 //User ineractive pages
 async function doLogin(req,res){
 
-  console.log(req.params.emailß)
+  console.log(req.params.email)
 
   myUser = await accounts.getUserByEmail(req.params.email)
 
@@ -43,7 +43,7 @@ async function doLogin(req,res){
       req.body.password = hash})
     });
   
-  if (req.body.email == myUser.email || req.body.password == myUser.password) {
+  if (req.params.email == myUser.email || req.paramsß.password == myUser.password) {
     res.cookie('userName', `${myUser.userName}`)
 
     req.session.user = myUser

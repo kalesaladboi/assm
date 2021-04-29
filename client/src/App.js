@@ -14,16 +14,16 @@ function App() {
       <nav>
         <h1>AntiSocialSocialMedia</h1>
         <ul>
-          <li><a href="/home">Home</a></li>
-          <li><a href="/register">Register</a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/users/myuser">My Profile</a></li>
+          <a href="/home">Home</a>
+          <a href="/register">Register</a>
+          <a href="/login">Login</a>
+          <a href="/users">My Profile</a>
         </ul>
       </nav>
       <BrowserRouter>
         <Switch>
           <Route path="/home">
-            <Home/>
+            <Home />
           </Route>
           <Route path="/register">
             <Register />

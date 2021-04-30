@@ -8,7 +8,7 @@ function MyUser() {
     <h2>Post</h2>
     <label>Enter post</label>
     <input type="text" placeholder="Thoughts"/>
-    <button > Login </button>
+    <button > post </button>
     </div>
     )
 }

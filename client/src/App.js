@@ -5,7 +5,7 @@ import './App.css';
 import Register from './register/Register'
 import Login from './login/login'
 import Home from './home/home'
-import MyUser from './user/myUser/myUser'
+import MyUser from './user/myUser'
 
 function App() {
 

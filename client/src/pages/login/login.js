@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import Axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 function Login() {
+
+    let history = useHistory
 
     const [emailLogin, setEmailLogin] = useState("")
     const [passwordLogin, setPasswordLogin] = useState("")
@@ -9,12 +12,13 @@ function Login() {
     const login = () => {
         console.log(emailLogin)
 
-        Axios.get(`http://localhost:6969/login/${emailLogin}`, {
+        Axios.post(`http://localhost:6969/login`, {
           email: emailLogin,
           password: passwordLogin
         }).then((response) => {
           console.log(response)
-        }).catch((error) => {
+        }).then(
+        ).catch((error) => {
           console.log(error)
         })
       }

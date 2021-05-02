@@ -2,11 +2,11 @@ import React, { useState } from "react"
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 //import Axios from 'axios'
 import './App.css';
-import Register from './register/Register'
-import Login from './login/login'
-import Home from './home/home'
-import MyUser from './user/myUser'
-import VideoJS from './movienight/MovieNight'
+import Register from './pages/register/Register'
+import Login from './pages/login/login'
+import Home from './pages/home/home'
+import MyUser from './pages/profile/profile'
+import VideoJS from './pages/movienight/MovieNight'
 
 function App() {
 

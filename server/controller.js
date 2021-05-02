@@ -31,9 +31,10 @@ async function deleteUserPage(req,res) {
 //User ineractive pages
 async function doLogin(req,res){
 
-  console.log(req.params.email)
+  console.log(req.body.email)
+  console.log(req.body.password)
 
-  myUser = await accounts.getUserByEmail(req.params.email)
+  myUser = await accounts.getUserByEmail(req.body.email)
 
   console.log(myUser)
 
@@ -43,7 +44,7 @@ async function doLogin(req,res){
       req.body.password = hash})
     });
   
-  if (req.params.email == myUser.email || req.paramsß.password == myUser.password) {
+  if (req.body.email == myUser.email || req.body.password == myUser.password) {
     res.cookie('userName', `${myUser.userName}`)
 
     req.session.user = myUser
@@ -51,7 +52,7 @@ async function doLogin(req,res){
     console.log("delta")
     console.log(req.session.user)
 
-    res.redirect(`/user/${myUser.userName}/feed`)
+    res.redirect(`/myUser`)
 
   } else {res.redirect(`/login`)
   console.log('login failed')

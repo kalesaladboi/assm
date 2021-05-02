@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Axios from 'axios'
+import { Redirect } from 'react-router'
 
 function Register() {
 
@@ -19,6 +20,8 @@ function Register() {
           birthday: birthdayReg, 
           password: passwordReg,
           password2: password2Reg
+        }).then(() => {
+          <Redirect to="/myUser"/>
         }).then((response) => {
           console.log(response)
         }).catch((error) => {

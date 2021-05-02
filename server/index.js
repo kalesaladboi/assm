@@ -33,7 +33,7 @@ app.post("/users/:userName", controller.doPost)
 
 
 //Get Request
-app.get("/login", controller.doLogin)
+app.post("/login", controller.doLogin)
 app.get("/users/:userName", account.getUser)
 
 app.listen(PORT, function(){

@@ -1,6 +1,6 @@
 import React from 'react'
 import VideoPlayer from 'react-video-js-player'
-import wasabi from "../video/wasabi.mp4"
+import wasabi from "../components/video/wasabi.mp4"
 import '@videojs/themes/dist/fantasy/index.css'
 
 

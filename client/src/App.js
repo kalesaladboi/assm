@@ -1,48 +1,62 @@
-import React, { useState } from "react"
+import React, { Component } from "react"
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-//import Axios from 'axios'
-import './App.css';
-import Register from './pages/register/Register'
-import Login from './pages/login/login'
-import Home from './pages/home/home'
-import MyUser from './pages/profile/profile'
-import VideoJS from './pages/movienight/MovieNight'
+import axios from 'axios'
+import Dashboard from "./components/Dashboard"
+import Home from "./components/Home"
 
-function App() {
+export default class App extends Component {
+  constructor() {
+    super()
 
-  return (
-    <div className="App">
-      <nav>
-        <h1>yeet yeeter</h1>
-        <ul>
-          <a href="/home">Home</a>
-          <a href="/register">Register</a>
-          <a href="/login">Login</a>
-          <a href="/myUser">My Profile</a>
-          <a href="/movieNight">Movie Night</a>
-        </ul>
-      </nav>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>          
-          <Route path="/myUser">
-            <MyUser />
-          </Route>
-          <Route path="/movieNight">
-            <VideoJS />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
+    this.state = {
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+    }
+
+    this.handleLogin= this.handleLogin.bind(this)
+  }
+
+  checkLoginStatus() {
+    axios.get("http://localhost:3001/logged_in", { withCredentials: true})
+    .then(response => {
+      console.log("logged in?", response)
+    }).catch(error =>{
+      console.log("login error:", error)
+    })
+  }
+
+  componentDidMount() {
+    this.checkLoginStatus()
+  }
+
+  handleLogin(data) {
+    this.setState({
+      loggedInStatus: "LOGGED_IN",
+      user: data.user
+    })
+  }
+
+  render(){
+    return (
+      <div className='app'>
+        <BrowserRouter>
+          <Switch>
+            <Route 
+            exact 
+            path={"/"} 
+            render={props => (
+              <Home {... props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
+            )}
+            />
+            <Route 
+            exact 
+            path={"/dashboard"} 
+            render={props => (
+              <Dashboard {... props} loggedInStatus={this.state.loggedInStatus} />
+            )}/>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    )
+  }
 }
-
-export default App;
